@@ -1,0 +1,57 @@
+{% extends "base_adminlte.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <!-- Abonentlar soni -->
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h3>{{ abonentlar_soni }}</h3>
+          <p>Abonentlar soni</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <a href="{% url 'abonentlar' %}" class="small-box-footer">
+          Barcha abonentlar <i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tariflar soni -->
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>{{ tariflar_soni }}</h3>
+          <p>Tariflar soni</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-list-alt"></i>
+        </div>
+        <a href="{% url 'tariflar' %}" class="small-box-footer">
+          Barcha tariflar <i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Umumiy to'lovlar summasi -->
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3>{{ umumiy_tolov|floatformat:2 }} so'm</h3>
+          <p>To'lovlar umumiy summasi</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <a href="{% url 'tolovlar' %}" class="small-box-footer">
+          To'lovlar ro'yxati <i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

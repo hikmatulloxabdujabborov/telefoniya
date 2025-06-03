@@ -1,0 +1,26 @@
+{% extends "base_adminlte.html" %}
+{% block title %}To'lovlar ro'yxati{% endblock %}
+
+{% block content %}
+<h3>To'lovlar ro'yxati</h3>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Abonent</th>
+      <th>Sana</th>
+      <th>Summa (so'm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tolov in tolovlar %}
+    <tr>
+      <td>{{ tolov.abonent.FIO }}</td>
+      <td>{{ tolov.sana }}</td>
+      <td>{{ tolov.summa }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3" class="text-center">To‘lovlar topilmadi.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

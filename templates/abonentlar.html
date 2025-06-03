@@ -1,0 +1,43 @@
+{% extends "base_adminlte.html" %}
+
+{% block title %}Abonentlar ro'yxati{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Abonentlar ro'yxati</h3>
+  </div>
+  <div class="card-body table-responsive p-0" style="max-height: 400px;">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>FIO</th>
+          <th>Telefon</th>
+          <th>Tarif</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for abonent in abonentlar %}
+        <tr>
+          <td>{{ abonent.FIO }}</td>
+          <td>{{ abonent.telefon }}</td>
+          <td>{{ abonent.tarif.nomi }}</td>
+          <td>
+            {% if abonent.status %}
+              <span class="badge badge-success">Aktiv</span>
+            {% else %}
+              <span class="badge badge-danger">Bloklangan</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4" class="text-center">Abonentlar topilmadi</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

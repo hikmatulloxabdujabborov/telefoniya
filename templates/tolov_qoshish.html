@@ -1,0 +1,33 @@
+{% extends "base_adminlte.html" %}
+{% block title %}Yangi to'lov qo'shish{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Yangi to'lov qo'shish</h3>
+  </div>
+  <div class="card-body">
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="abonent_id">Abonentni tanlang</label>
+        <select name="abonent_id" id="abonent_id" class="form-control" required>
+          <option value="" disabled selected>Tanlang</option>
+          {% for abonent in abonentlar %}
+          <option value="{{ abonent.id }}">{{ abonent.FIO }} - {{ abonent.telefon }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="summa">Summa (so'm)</label>
+        <input type="number" name="summa" id="summa" class="form-control" required min="0" step="any" placeholder="Summa kiriting">
+      </div>
+      <button type="submit" class="btn btn-success">Saqlash</button>
+      <a href="{% url 'tolovlar' %}" class="btn btn-secondary">Orqaga</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
