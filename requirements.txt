@@ -1,0 +1,15 @@
+Django==4.2
+psycopg2-binary==2.9.10
+gunicorn
+whitenoise==6.9.0
+django-filter==25.1
+djangorestframework==3.16.0
+djangorestframework-simplejwt==5.5.0
+python-dotenv
+channels==4.2.2
+asgiref==3.8.1
+aiogram==3.3.0
+daphne==4.1.2
+django-jazzmin==3.0.1
+pillow==11.2.1
+pyOpenSSL==25.0.0

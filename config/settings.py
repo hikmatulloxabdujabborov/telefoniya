@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pfps+ko7&3^*o9ydnp$4&qv2dah)bp9=54z$!7#h5%@b5aksbp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nuvia.uz', 'www.nuvia.uz']
+
 
 
 # Application definition
@@ -83,13 +85,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',          # Siz yaratgan baza nomi
-        'USER': 'postgres',        # Siz yaratgan user nomi
-        'PASSWORD': 'postgres',       # Siz yaratgan parol
-        'HOST': 'localhost',            # Odatda localhost yoki IP
-        'PORT': '5432',                 # Odatda 5432
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'postgres'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 
